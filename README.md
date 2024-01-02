@@ -34,8 +34,7 @@ A currency converter tool that runs on C++. A demo of me teaching myself C++. Cu
   - clang --version
  </pre>
 
- To install the development/compiling system on Windows, I would recommend watching this 5-minute [video]([url](https://www.youtube.com/watch?v=9VE7p-he4fA))
+ To install the development/compiling system on Windows, I would recommend watching this 5-minute video on YouTube by Code Bear: "How to Set up Visual Studio Code for C and C++ Programming"
 
- Once these dependencies are installed, watch [this]([url](https://www.youtube.com/watch?v=3-9sObAg6R0)) video on how to run and compile the program in the VSCode terminal.
-
-### ***PROGRAM DESIGN AND IMPORTANT CONCEPTS*** ###
+ Once these dependencies are installed, watch this video: "Run C++ and C in Visual Studio Code | Mac and Windows!" by Caleb Curry on YouTube on how to run and compile the program in the VSCode 
+ terminal.
