@@ -33,4 +33,8 @@ int main()
     {
         cout << dollar << " Dollars in Pound = " << pound;
     }
+    else
+    {
+        cout << "That's an invalid input. Please try again.";
+    }
 }
