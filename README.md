@@ -39,4 +39,9 @@ A currency converter tool that runs on C++. A demo of me teaching myself C++. Cu
  Once these dependencies are installed, watch this video: "Run C++ and C in Visual Studio Code | Mac and Windows!" by Caleb Curry on YouTube on how to run and compile the program in the VSCode 
  terminal.
 
+ After watching this video and you can compile your code, run the program in the terminal by doing:
+ <pre>
+  ./currency_converter
+ </pre>
+
  I recommend when cloning this repository for use to only use the currency_converter.cpp file, and let the extensions and development system create the other JSON files, etc. for you.
