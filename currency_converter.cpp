@@ -15,7 +15,9 @@ double convertCurrency(double amount, double conversionRate)
 
 bool isValidCurrency(const string &currency)
 {
-    return (currency == "INR" || currency == "EUR" || currency == "GBP");
+    // Update the list of valid currencies
+    return (currency == "INR" || currency == "EUR" || currency == "GBP" ||
+            currency == "USD" || currency == "JPY" || currency == "AUD");
 }
 
 int main()
@@ -33,11 +35,13 @@ int main()
     double pound = convertCurrency(dollar, 0.79);
     double euro = convertCurrency(dollar, 0.91);
     double rupee = convertCurrency(dollar, 83.27);
+    double yen = convertCurrency(dollar, 113.50);
+    double aussieDollar = convertCurrency(dollar, 1.35);
 
     // Prompt user for input and convert it to uppercase
     do
     {
-        cout << "Enter GBP for converting USD to GBP, INR for converting USD to INR, or EUR for converting USD to EUR:\n";
+        cout << "Enter the currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD):\n";
         cin >> currency;
 
         // Convert the currency input to uppercase
@@ -64,6 +68,18 @@ int main()
     else if (currency == "GBP")
     {
         cout << dollar << " Dollars in Pound = " << pound;
+    }
+    else if (currency == "USD")
+    {
+        cout << dollar << " Dollars in USD = " << dollar;
+    }
+    else if (currency == "JPY")
+    {
+        cout << dollar << " Dollars in Yen = " << yen;
+    }
+    else if (currency == "AUD")
+    {
+        cout << dollar << " Dollars in AUD = " << aussieDollar;
     }
 
     return 0;
