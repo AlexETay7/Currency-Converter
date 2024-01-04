@@ -27,11 +27,11 @@ A currency converter tool that runs on C++. A demo of me teaching myself C++. Cu
  To install the integrated development system on Mac, I would recommend installing Xcode. This will allow you to compile your code with clang.
  To do so, open a terminal and type the command: 
  <pre>
-  xcode-select --install
+  $ xcode-select --install
  </pre>
  If your machine says you already have it, make sure by using the command:
  <pre>
-  - clang --version
+  $ - clang --version
  </pre>
 
  To install the development/compiling system on Windows, I would recommend watching this 5-minute video on YouTube by Code Bear: "How to Set up Visual Studio Code for C and C++ Programming"
@@ -41,7 +41,7 @@ A currency converter tool that runs on C++. A demo of me teaching myself C++. Cu
 
  After watching this video and you can compile your code, run the program in the terminal by doing:
  <pre>
-  ./currency_converter
+  $ ./currency_converter
  </pre>
 
  I recommend when cloning this repository for use to only use the currency_converter.cpp file, and let the extensions and development system create the other JSON files, etc. for you.
