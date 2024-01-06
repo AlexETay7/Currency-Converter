@@ -1,7 +1,3 @@
-/**
- * @author Alex Taylor
- */
-
 #include <iostream>
 #include <string>
 #include <cctype> // for toupper()
@@ -24,63 +20,81 @@ int main()
 {
     // Declare variables
     double dollar;
-    string currency;
+    string fromCurrency, toCurrency;
 
     // Inform user and prompt
     cout << "CURRENCY CONVERTER\n";
     cout << "Enter USD value you want converted:\n";
     cin >> dollar;
 
-    // Conversion factors for currencies
-    double pound = convertCurrency(dollar, 0.79);
-    double euro = convertCurrency(dollar, 0.91);
-    double rupee = convertCurrency(dollar, 83.27);
-    double yen = convertCurrency(dollar, 113.50);
-    double aussieDollar = convertCurrency(dollar, 1.35);
-
     // Prompt user for input and convert it to uppercase
     do
     {
-        cout << "Enter the currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD):\n";
-        cin >> currency;
+        cout << "Enter the source currency code (e.g., USD):\n";
+        cin >> fromCurrency;
 
         // Convert the currency input to uppercase
-        for (char &c : currency)
+        for (char &c : fromCurrency)
         {
             c = toupper(c);
         }
 
-        if (!isValidCurrency(currency))
+        if (!isValidCurrency(fromCurrency))
         {
             cout << "Invalid input. Please try again.\n";
         }
-    } while (!isValidCurrency(currency));
+    } while (!isValidCurrency(fromCurrency));
 
-    // Continue with the conversion logic
-    if (currency == "INR")
+    do
     {
-        cout << dollar << " Dollars in Rupees = " << rupee;
-    }
-    else if (currency == "EUR")
+        cout << "Enter the target currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD):\n";
+        cin >> toCurrency;
+
+        // Convert the currency input to uppercase
+        for (char &c : toCurrency)
+        {
+            c = toupper(c);
+        }
+
+        if (!isValidCurrency(toCurrency))
+        {
+            cout << "Invalid input. Please try again.\n";
+        }
+    } while (!isValidCurrency(toCurrency));
+
+    // Conversion factor for currencies
+    double conversionRate;
+    // Assign conversion rate based on target currency
+    if (toCurrency == "INR")
     {
-        cout << dollar << " Dollars in Euro = " << euro;
+        conversionRate = 83.27;
     }
-    else if (currency == "GBP")
+    else if (toCurrency == "EUR")
     {
-        cout << dollar << " Dollars in Pound = " << pound;
+        conversionRate = 0.91;
     }
-    else if (currency == "USD")
+    else if (toCurrency == "GBP")
     {
-        cout << dollar << " Dollars in USD = " << dollar;
+        conversionRate = 0.79;
     }
-    else if (currency == "JPY")
+    else if (toCurrency == "USD")
     {
-        cout << dollar << " Dollars in Yen = " << yen;
+        conversionRate = 1.0;
     }
-    else if (currency == "AUD")
+    else if (toCurrency == "JPY")
     {
-        cout << dollar << " Dollars in AUD = " << aussieDollar;
+        conversionRate = 113.50;
     }
+    else if (toCurrency == "AUD")
+    {
+        conversionRate = 1.35;
+    }
+
+    // Perform the conversion
+    double convertedAmount = convertCurrency(dollar, conversionRate);
+
+    // Display the result
+    cout << dollar << " " << fromCurrency << " in " << toCurrency << " = " << convertedAmount << endl;
 
     return 0;
 }
