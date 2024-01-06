@@ -19,18 +19,16 @@ bool isValidCurrency(const string &currency)
 int main()
 {
     // Declare variables
-    double dollar;
+    double amount;
     string fromCurrency, toCurrency;
 
     // Inform user and prompt
     cout << "CURRENCY CONVERTER\n";
-    cout << "Enter USD value you want converted:\n";
-    cin >> dollar;
 
     // Prompt user for input and convert it to uppercase
     do
     {
-        cout << "Enter the source currency code (e.g., USD):\n";
+        cout << "Enter the source currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD):\n";
         cin >> fromCurrency;
 
         // Convert the currency input to uppercase
@@ -45,6 +43,7 @@ int main()
         }
     } while (!isValidCurrency(fromCurrency));
 
+    // Prompt user for target currency and convert it to uppercase
     do
     {
         cout << "Enter the target currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD):\n";
@@ -62,39 +61,69 @@ int main()
         }
     } while (!isValidCurrency(toCurrency));
 
-    // Conversion factor for currencies
-    double conversionRate;
-    // Assign conversion rate based on target currency
+    // Inform user and prompt
+    cout << "Enter the amount in " << fromCurrency << " you want to convert:\n";
+    cin >> amount;
+
+    // Conversion factor for source and target currencies
+    double conversionRateFrom, conversionRateTo;
+
+    // Assign conversion rates based on source and target currencies
+    if (fromCurrency == "INR")
+    {
+        conversionRateFrom = 83.27;
+    }
+    else if (fromCurrency == "EUR")
+    {
+        conversionRateFrom = 0.91;
+    }
+    else if (fromCurrency == "GBP")
+    {
+        conversionRateFrom = 0.79;
+    }
+    else if (fromCurrency == "USD")
+    {
+        conversionRateFrom = 1.0;
+    }
+    else if (fromCurrency == "JPY")
+    {
+        conversionRateFrom = 113.50;
+    }
+    else if (fromCurrency == "AUD")
+    {
+        conversionRateFrom = 1.35;
+    }
+
     if (toCurrency == "INR")
     {
-        conversionRate = 83.27;
+        conversionRateTo = 83.27;
     }
     else if (toCurrency == "EUR")
     {
-        conversionRate = 0.91;
+        conversionRateTo = 0.91;
     }
     else if (toCurrency == "GBP")
     {
-        conversionRate = 0.79;
+        conversionRateTo = 0.79;
     }
     else if (toCurrency == "USD")
     {
-        conversionRate = 1.0;
+        conversionRateTo = 1.0;
     }
     else if (toCurrency == "JPY")
     {
-        conversionRate = 113.50;
+        conversionRateTo = 113.50;
     }
     else if (toCurrency == "AUD")
     {
-        conversionRate = 1.35;
+        conversionRateTo = 1.35;
     }
 
     // Perform the conversion
-    double convertedAmount = convertCurrency(dollar, conversionRate);
+    double convertedAmount = convertCurrency(amount, conversionRateTo / conversionRateFrom);
 
     // Display the result
-    cout << dollar << " " << fromCurrency << " in " << toCurrency << " = " << convertedAmount << endl;
+    cout << amount << " " << fromCurrency << " in " << toCurrency << " = " << convertedAmount << endl;
 
     return 0;
 }
