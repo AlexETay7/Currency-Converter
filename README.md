@@ -45,3 +45,8 @@ A currency converter tool that runs on C++. A demo of me teaching myself C++. Cu
  </pre>
 
  I recommend when cloning this repository for use to only use the currency_converter.cpp file, and let the extensions and development system create the other JSON files, etc. for you.
+
+ ### ***PROGRAM DESIGN AND IMPORTANT CONCEPTS:***
+
+ This program does simple currency conversions using constant conversion factors for currencies that I pulled from the internet. Users start by entering their source currency, then the currency they want it converted to, and then the amount. Once this is done console output will give the results.
+
