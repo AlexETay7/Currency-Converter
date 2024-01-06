@@ -9,16 +9,42 @@
 
 using namespace std;
 
+// Function to convert currency
 double convertCurrency(double amount, double conversionRate)
 {
     return amount * conversionRate;
 }
 
+// Function to check if the input currency is valid
 bool isValidCurrency(const string &currency)
 {
     // Update the list of valid currencies
     return (currency == "INR" || currency == "EUR" || currency == "GBP" ||
             currency == "USD" || currency == "JPY" || currency == "AUD");
+}
+
+// Function to prompt the user for a valid currency
+string getValidCurrencyInput(const string &prompt)
+{
+    string currency;
+    do
+    {
+        cout << prompt;
+        cin >> currency;
+
+        // Convert the currency input to uppercase
+        for (char &c : currency)
+        {
+            c = toupper(c);
+        }
+
+        if (!isValidCurrency(currency))
+        {
+            cout << "Invalid input. Please enter a valid currency code.\n";
+        }
+    } while (!isValidCurrency(currency));
+
+    return currency;
 }
 
 int main()
@@ -30,41 +56,11 @@ int main()
     // Inform user and prompt
     cout << "CURRENCY CONVERTER\n";
 
-    // Prompt user for input and convert it to uppercase
-    do
-    {
-        cout << "Enter the source currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD):\n";
-        cin >> fromCurrency;
+    // Prompt user for source currency
+    fromCurrency = getValidCurrencyInput("Enter the source currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD): ");
 
-        // Convert the currency input to uppercase
-        for (char &c : fromCurrency)
-        {
-            c = toupper(c);
-        }
-
-        if (!isValidCurrency(fromCurrency))
-        {
-            cout << "Invalid input. Please try again.\n";
-        }
-    } while (!isValidCurrency(fromCurrency));
-
-    // Prompt user for target currency and convert it to uppercase
-    do
-    {
-        cout << "Enter the target currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD):\n";
-        cin >> toCurrency;
-
-        // Convert the currency input to uppercase
-        for (char &c : toCurrency)
-        {
-            c = toupper(c);
-        }
-
-        if (!isValidCurrency(toCurrency))
-        {
-            cout << "Invalid input. Please try again.\n";
-        }
-    } while (!isValidCurrency(toCurrency));
+    // Prompt user for target currency
+    toCurrency = getValidCurrencyInput("Enter the target currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD): ");
 
     // Inform user and prompt
     cout << "Enter the amount in " << fromCurrency << " you want to convert:\n";
