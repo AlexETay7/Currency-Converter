@@ -1,3 +1,8 @@
+/**
+ * @author Alex Taylor
+ * Main file for currency conversions.
+ */
+
 #include <iostream>
 #include <string>
 #include <cctype> // for toupper()
