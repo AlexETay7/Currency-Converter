@@ -7,7 +7,7 @@
 
 ### ***OVERVIEW:***
 
-A currency converter tool that runs on C++. A demo of me teaching myself C++. Currently supports conversions from GPB(pounds), EUR(euros), and INR(Indian rupees).
+A currency converter tool that runs on C++. A demo of me teaching myself C++. Currently supports conversions from USD(US dollar), GPB(pounds), EUR(euros), JPY(Japanese yen), AUD(Australian dollar), and INR(Indian rupees).
 
 ### ***INCLUDED FILES:***
 
