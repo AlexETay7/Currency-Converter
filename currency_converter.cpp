@@ -5,7 +5,8 @@
 
 #include <iostream>
 #include <string>
-#include <cctype> // for toupper()
+#include <iomanip> // for setw()
+#include <cctype>  // for toupper()
 
 using namespace std;
 
@@ -21,6 +22,21 @@ bool isValidCurrency(const string &currency)
     // Update the list of valid currencies
     return (currency == "INR" || currency == "EUR" || currency == "GBP" ||
             currency == "USD" || currency == "JPY" || currency == "AUD");
+}
+
+// Function to display supported currencies and their conversion rates
+void displaySupportedCurrencies()
+{
+    cout << "Supported Currencies:\n";
+    cout << setw(5) << "Code" << setw(15) << "Conversion Rate\n";
+    cout << "------------------------\n";
+    cout << setw(5) << "INR" << setw(15) << "83.27\n";
+    cout << setw(5) << "EUR" << setw(15) << "0.91\n";
+    cout << setw(5) << "GBP" << setw(15) << "0.79\n";
+    cout << setw(5) << "USD" << setw(15) << "1.0\n";
+    cout << setw(5) << "JPY" << setw(15) << "113.50\n";
+    cout << setw(5) << "AUD" << setw(15) << "1.35\n";
+    cout << "------------------------\n";
 }
 
 // Function to prompt the user for a valid currency
@@ -41,6 +57,7 @@ string getValidCurrencyInput(const string &prompt)
         if (!isValidCurrency(currency))
         {
             cout << "Invalid input. Please enter a valid currency code.\n";
+            displaySupportedCurrencies();
         }
     } while (!isValidCurrency(currency));
 
@@ -53,14 +70,15 @@ int main()
     double amount;
     string fromCurrency, toCurrency;
 
-    // Inform user and prompt
+    // Inform user and display supported currencies
     cout << "CURRENCY CONVERTER\n";
+    displaySupportedCurrencies();
 
     // Prompt user for source currency
-    fromCurrency = getValidCurrencyInput("Enter the source currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD): ");
+    fromCurrency = getValidCurrencyInput("Enter the source currency code for conversion: ");
 
     // Prompt user for target currency
-    toCurrency = getValidCurrencyInput("Enter the target currency code for conversion (e.g., GBP, INR, EUR, USD, JPY, AUD): ");
+    toCurrency = getValidCurrencyInput("Enter the target currency code for conversion: ");
 
     // Inform user and prompt
     cout << "Enter the amount in " << fromCurrency << " you want to convert:\n";
